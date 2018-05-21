@@ -1,0 +1,30 @@
+{
+    "name": "koncept/console-application",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Showsay You",
+            "email": "akizuki.c10.l65@gmail.com"
+        }
+    ],
+    "require": {
+        "koncept/dependency-injection": "^1.1",
+        "koncept/kernel": "^1.0",
+        "php": "^7.2",
+        "strictphp/collection": "^1.2",
+        "strictphp/property": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Koncept\\ConsoleApp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Koncept\\ConsoleApp\\Tests\\": "tests/"
+        }
+    }
+}
