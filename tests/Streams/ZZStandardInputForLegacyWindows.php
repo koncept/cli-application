@@ -15,7 +15,7 @@ class ZZStandardInputForLegacyWindows
     public function stream_read(int $count): string
     {
         $ret = substr($this->stream, 0, $count);
-        $this->stream = substr($this->stream, $count);
+        $this->stream = (string)substr($this->stream, $count);
         return $ret;
     }
 
