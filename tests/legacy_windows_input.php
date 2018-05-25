@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 use Koncept\ConsoleApp\Console\LegacyWindowsConsoleHandler;
 
 
 if (realpath($_SERVER["SCRIPT_FILENAME"]) !== realpath(__FILE__)) {
-    echo "This test is not intendend to be required.", PHP_EOL;
+    echo "This test is not intended to be required.", PHP_EOL;
     die;
 }
 
