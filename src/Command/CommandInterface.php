@@ -75,15 +75,28 @@ namespace Koncept\ConsoleApp\Command;
  *   => call `__invoke('John', '3', 'Lucas')`
  *
  * `koncept my-command:set-name "Johnathan" 3`
- *   => throw an InvalidParameterException
+ *   => Invalid Parameter
  *
  * `koncept my-command:unknown-command`
- *   => throw an CommandNotFoundException
+ *   => Command Not Found
  *
  * `koncept my-command:private-command`
- *   => throw an CommandNotFoundException
+ *   => Command Not Found
  */
 interface CommandInterface
 {
-
+    /**
+     * Options that help MUST implement:
+     *   - `help`
+     *     List up commands supported.
+     *   - `help {name}`
+     *     Find commands named like {name} and list up those commands.
+     *
+     * Recommended switches:
+     *   - `-s`
+     *     Short description.
+     *
+     * @param string ...$args
+     */
+    public function help(string ...$args): void;
 }
