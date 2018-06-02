@@ -3,6 +3,7 @@
 namespace Koncept\ConsoleApp\Exceptions;
 
 use Strict\Collection\Vector\Scalar\Vector_string;
+use Throwable;
 
 
 /**
@@ -14,6 +15,7 @@ use Strict\Collection\Vector\Scalar\Vector_string;
  * @since v1.0.0
  */
 interface ConsoleInputExceptionInterface
+    extends Throwable
 {
     /**
      * Explain the reason why this exception is thrown.
