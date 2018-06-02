@@ -4,7 +4,7 @@ namespace Koncept\ConsoleApp\Tests\TestCases;
 
 use Koncept\ConsoleApp\Exceptions\MalformedArgumentsException;
 use Koncept\ConsoleApp\Exceptions\UnsupportedParameterTypeException;
-use Koncept\ConsoleApp\ScalarArgumentParser;
+use Koncept\ConsoleApp\Utilities\ScalarArgumentParser;
 use PHPUnit\Framework\TestCase;
 use ReflectionObject;
 

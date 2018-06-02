@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Koncept\ConsoleApp;
+namespace Koncept\ConsoleApp\Utilities;
 
 use Closure;
 use Koncept\ConsoleApp\Exceptions\MalformedArgumentsException;
