@@ -20,9 +20,11 @@ class UnsupportedParameterTypeException
 {
     public static function fromReflection(ReflectionMethod $method, ReflectionParameter $param): self
     {
+        assert($param->hasType());
+
         $class = $method->getDeclaringClass();
         return new self(
-            "The type of the parameter {$param->getName()} " .
+            "The type of the parameter {$param->getName()} ({$param->getType()->getName()})" .
             "of the method {$method->getShortName()} " .
             "of the class {$class->getShortName()} " .
             "({$class->getName()}) " .
