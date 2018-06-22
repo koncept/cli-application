@@ -2,6 +2,7 @@
 
 namespace Koncept\ConsoleApp\Command;
 
+use Koncept\ConsoleApp\Exceptions\InvalidSignatureException;
 use Strict\Property\Utility\AutoProperty;
 
 
@@ -30,13 +31,18 @@ class CommandName
     /**
      * CommandName constructor.
      *
-     * @param string $primary
-     * @param null|string $secondary
+     * @param string $signature
      */
-    public function __construct(string $primary, ?string $secondary = null)
+    public function __construct(string $signature)
     {
-        $this->primaryCmd   = $primary;
-        $this->secondaryCmd = $secondary;
+        if (1 !== preg_match(
+                '/^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)(:([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*))?$/u',
+                $signature, $parsed)) {
+            throw new InvalidSignatureException($signature);
+        }
+
+        $this->primaryCmd   = $parsed[1];
+        $this->secondaryCmd = $parsed[4] ?? null;
     }
 
     /**
