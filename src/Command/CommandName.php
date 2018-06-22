@@ -14,24 +14,29 @@ use Strict\Property\Utility\AutoProperty;
  * @since v1.0.0
  *
  * @property-read string $name
+ * @property-read string $primary
+ * @property-read null|string $secondary
  */
 class CommandName
 {
     use AutoProperty;
 
-    /**
-     * @var string
-     */
-    private $commandName;
+    /** @var string */
+    private $primaryCmd;
+
+    /** @var null|string */
+    private $secondaryCmd;
 
     /**
      * CommandName constructor.
      *
-     * @param string $commandName
+     * @param string $primary
+     * @param null|string $secondary
      */
-    public function __construct(string $commandName)
+    public function __construct(string $primary, ?string $secondary = null)
     {
-        $this->commandName = $commandName;
+        $this->primaryCmd   = $primary;
+        $this->secondaryCmd = $secondary;
     }
 
     /**
@@ -39,7 +44,26 @@ class CommandName
      */
     public function getName(): string
     {
-        return $this->commandName;
+        if (is_null($this->secondaryCmd)) {
+            return $this->primaryCmd;
+        }
+        return "{$this->primaryCmd}:{$this->secondaryCmd}";
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrimary(): string
+    {
+        return $this->primaryCmd;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSecondary(): ?string
+    {
+        return $this->secondaryCmd;
     }
 
     /**
@@ -47,6 +71,6 @@ class CommandName
      */
     public function __toString(): string
     {
-        return $this->commandName;
+        return $this->getName();
     }
 }
